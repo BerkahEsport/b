@@ -1,6 +1,6 @@
 import { wallpaper, wallpaperv2 } from '@bochilteam/scraper'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `Use example ${usedPrefix}${command} Minecraft`
+    if (!text) throw `Carane nggunakke ketiken  ${usedPrefix}${command} Minecraft`
     const res = await (/2/.test(command) ? wallpaperv2 : wallpaper)(text)
     const img = res[Math.floor(Math.random() * res.length)]
     conn.sendFile(m.chat, img, 'wallpaper.jpg', `Result from *${text}*`, m)

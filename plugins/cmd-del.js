@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, text, command }) => {
 }
 
 
-handler.help = ['cmd'].map(v => 'del' + v + ' <teks>')
+handler.help = ['cmd'].map(v => 'del' + v + ' [katane]')
 handler.tags = ['database']
 handler.command = ['delcmd']
 

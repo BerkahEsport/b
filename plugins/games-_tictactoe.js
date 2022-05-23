@@ -28,7 +28,7 @@ export async function before(m) {
             }))
         if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
             m.reply({
-                '-3': 'Game telah berakhir',
+                '-3': 'Dolanane wes rampung!',
                 '-2': 'Invalid',
                 '-1': 'Posisi Invalid',
                 0: 'Posisi Invalid',
@@ -63,16 +63,16 @@ export async function before(m) {
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
-${isWin ? `@${winner.split('@')[0]} Menang! (+${winScore} XP)` : isTie ? `Game berakhir (+${playScore} XP)` : `Giliran ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+${isWin ? `@${winner.split('@')[0]} Menang! (+${winScore} XP)` : isTie ? `Dolanan wes rampung (+${playScore} XP)` : `Gilirane ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
 ❌: @${room.game.playerX.split('@')[0]}
 ⭕: @${room.game.playerO.split('@')[0]}
-Ketik *nyerah* untuk nyerah
+Ketik *nyerah* kanggo ngalah.
 Room ID: ${room.id}
 `.trim()
         let users = global.db.data.users
         if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-        const btn = isTie ? ['TicTacToe', '/ttt'] : ['Nyerah', 'nyerah']
+        const btn = isTie ? ['TicTacToe', '/ttt'] : ['Ngalah', 'nyerah']
         if (room.x !== room.o)
             await this.sendButton(room.x, str, author, btn, m, {
                 mentions: this.parseMention(str)

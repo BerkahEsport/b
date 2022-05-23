@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => conn.reply(m.chat, `
     mentions: m.mentionedJid
 } : {})
 
-handler.help = ['', 'kah'].map(v => 'kapan' + v + ' <text>?')
+handler.help = ['', 'kah'].map(v => 'kapan' + v + ' [katane]?')
 handler.tags = ['kerang', 'fun']
 handler.customPrefix = /(\?$)/
 handler.command = /^kapan(kah)?$/i

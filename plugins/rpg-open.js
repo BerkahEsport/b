@@ -65,8 +65,8 @@ let handler = async (m, { command, args, usedPrefix }) => {
     let user = global.db.data.users[m.sender]
     let listCrate = Object.fromEntries(Object.entries(rewards).filter(([v]) => v && v in user))
     let info = `
-Use Format *${usedPrefix}${command} [crate] [count]*
-Usage example: *${usedPrefix}${command} common 10*
+Gunakke format : *${usedPrefix}${command} [crate] [count]*
+Conto penggunaane :: *${usedPrefix}${command} common 10*
 
 📍Crate list: 
 ${Object.keys(listCrate).map((v) => `

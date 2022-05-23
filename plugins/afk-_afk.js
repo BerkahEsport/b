@@ -18,9 +18,9 @@ export function before(m) {
             continue
         let reason = user.afkReason || ''
         m.reply(`
-  Jangan tag dia!
-  Dia sedang AFK ${reason ? 'dengan alasan ' + reason : 'tanpa alasan'}
-  Selama ${(new Date - afkTime).toTimeString()}
+  Ojo mok tag yo!
+  Wonge lagi AFK ${reason ? 'alesane merga ' + reason : 'tanpa alesan'}
+  Nganti ${(new Date - afkTime).toTimeString()}
   `.trim())
     }
     return true

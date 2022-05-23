@@ -1,14 +1,14 @@
 import { pinterest } from '@bochilteam/scraper'
 
 let handler = async(m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `Example use ${usedPrefix + command} minecraft`
+  if (!text) throw `Conto penggunaane ${usedPrefix + command} minecraft`
   const json = await pinterest(text)
   conn.sendFile(m.chat, json.getRandom(), 'pinterest.jpg', `
-*Hasil pencarian*
+*Hasil pencariane*
 ${text}
 `.trim(), m)
 }
-handler.help = ['pinterest <keyword>']
+handler.help = ['pinterest [goleki]']
 handler.tags = ['internet']
 handler.command = /^(pinterest)$/i
 

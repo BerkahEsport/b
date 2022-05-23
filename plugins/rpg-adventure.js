@@ -3,21 +3,21 @@ let handler = async (m, { usedPrefix }) => {
     let user = global.db.data.users[m.sender]
     let timers = (cooldown - (new Date - user.lastadventure))
     if (user.health < 80) return m.reply(`
-Requires at least 80 ❤️Healths for the adventure!!
-please buy ❤️Healths first by typing *${usedPrefix}buy potion <quantity>*,
-and type *${usedPrefix}heal <quantity>* to use potions
+Mbutuhne minimal 80 ❤️Health yen pengen adventure!!
+Coba tuku ❤️Health disek, carane ketiken *${usedPrefix}buy potion [jumlahe]*,
+nak wes sukses tuku ketiken *${usedPrefix}heal [jumlahe]* nggo gunakke Potion.
 `.trim())
     if (new Date - user.lastadventure <= cooldown) return m.reply(`
-You're already adventure!!, please wait *🕐${timers.toTimeString()}*
+Koe wes bar adventure!!, entenono *🕐${timers.toTimeString()}* meneh!!!
 `.trim())
     const rewards = reward(user)
-    let text = 'you\'ve been adventure and lost'
+    let text = 'Koe wes rampung adventure...'
     for (const lost in rewards.lost) if (user[lost]) {
         const total = rewards.lost[lost].getRandom()
         user[lost] -= total * 1
         if (total) text += `\n*${global.rpg.emoticon(lost)}${lost}:* ${total}`
     }
-    text += '\n\nBut you got'
+    text += '\n\nLan koe oleh'
     for (const rewardItem in rewards.reward) if (rewardItem in user) {
         const total = rewards.reward[rewardItem].getRandom()
         user[rewardItem] += total * 1
@@ -26,7 +26,7 @@ You're already adventure!!, please wait *🕐${timers.toTimeString()}*
     m.reply(text.trim())
     user.lastadventure = new Date * 1
 }
-handler.help = ['adventure', 'petualang', 'berpetualang', 'mulung']
+handler.help = ['adventure', 'petualang']
 handler.tags = ['rpg']
 handler.command = /^(adventure|(ber)?petualang(ang)?|mulung)$/i
 

@@ -8,9 +8,9 @@ let handler = async (m, { conn, args, command }) => {
         await m.reply('Berhasil!')
     } else if (args[0] || args.length > 5) {
         let ada = chat.find(bot => bot == args[0]) // Apakah botnya ada disitu
-        if (!ada) throw 'id salah/bot tidak ada digrup itu'
+        if (!ada) throw 'id salah/bot ora nang group kui!'
         await conn.groupLeave(args[0])
-        await m.reply('Berhasil!')
+        await m.reply('Berhasil metu seko Group!')
     } else {
         if (!m.isGroup) return global.dfail('group', m, conn)
         await conn.groupLeave(m.chat)

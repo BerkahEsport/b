@@ -3,6 +3,7 @@ let handler =  m => m.reply(`꧁𓊈𒆜🅳🅾🅽🅰🆂🅸𒆜𓊉꧂
 ┌〔 Donasi • E-money 〕
 ├ LinkAja : 62895371549895
 ├ Dana : 62895371549895
+├ Pulsa : 62895371549895
 ├ Scan QR Code di Profil BOT
  |
 ├ Kami ucapkan terima kasih,
@@ -10,7 +11,7 @@ let handler =  m => m.reply(`꧁𓊈𒆜🅳🅾🅽🅰🆂🅸𒆜𓊉꧂
  | *BOT* ini bisa berkembang
  | dan lebih baik.
  |
-├ tq *WANDA*
+├ Thank's to ALLAH S.W.T
 └────
 `.trim()) // Tambah sendiri kalo mau
 handler.help = ['donasi']

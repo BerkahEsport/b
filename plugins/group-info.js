@@ -4,26 +4,26 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
     const groupAdmins = participants.filter(p => p.admin)
     const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
     const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-    let text = `*「 Group Information 」*\n
+    let text = `*「 Informasi Group 」*\n
 *ID:* 
 ${groupMetadata.id}
-*Name:* 
+*Jenenge:* 
 ${groupMetadata.subject}
-*Description:* 
+*Deskripsine:* 
 ${groupMetadata.desc?.toString() || 'unknown'}
-*Total Members:*
+*Total Membere:*
 ${participants.length} Members
-*Group Owner:* 
+*Sing duwe Group:* 
 @${owner.split('@')[0]}
-*Group Admins:*
+*Admine Group:*
 ${listAdmin}
-*Group Settings:*
+*Settingane Group:*
 ${isBanned ? '✅' : '❌'} Banned
 ${welcome ? '✅' : '❌'} Welcome
 ${detect ? '✅' : '❌'} Detect
 ${del ? '❌' : '✅'} Anti Delete
 ${antiLink ? '✅' : '❌'} Anti Link
-*Message Settings:*
+*Settingan Pesane:*
 Welcome: ${sWelcome}
 Bye: ${sBye}
 Promote: ${sPromote}

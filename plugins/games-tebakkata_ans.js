@@ -6,7 +6,7 @@ export async function before(m) {
         return !0
     this.tebakkata = this.tebakkata ? this.tebakkata : {}
     if (!(id in this.tebakkata))
-        return conn.sendButton(m.chat, 'Soal itu telah berakhir', author, ['tebakkata', '/tebakkata'], m)
+        return conn.sendButton(m.chat, '*Soale kui wes rampung!*', author, ['tebakkata', '/tebakkata'], m)
     if (m.quoted.id == this.tebakkata[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tebakkata[id][1]))
         // m.reply(JSON.stringify(json, null, '\t'))
@@ -16,7 +16,7 @@ export async function before(m) {
             clearTimeout(this.tebakkata[id][3])
             delete this.tebakkata[id]
         } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold)
-            m.reply(`*Dikit Lagi!*`)
+            m.reply(`*Sitik engkas!*`)
         else
             m.reply(`*Salah!*`)
     }

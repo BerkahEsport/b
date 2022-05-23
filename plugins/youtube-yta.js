@@ -2,7 +2,7 @@ let limit = 80
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  if (!args || !args[0]) throw 'Uhm... urlnya mana?'
+  if (!args || !args[0]) throw 'Alamat url.e endi mase?'
   let chat = global.db.data.chats[m.chat]
   const isY = /y(es)/gi.test(args[1])
   const { thumbnail, audio: _audio, title } = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
@@ -24,24 +24,24 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
       lastError = e
     }
   }
-  if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw 'Error: ' + (lastError || 'Can\'t download audio')
+  if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw 'Error: ' + (lastError || 'Raiso download audio / swarane')
   if (!isY && !isLimit) await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
-*📌Title:* ${title}
-*🗎 Filesize:* ${audio.fileSizeH}
-*${isLimit ? 'Pakai ' : ''}Link:* ${link}
+*📌Judule:* ${title}
+*🗎 Ukurane File:* ${audio.fileSizeH}
+*${isLimit ? 'Gunakne ' : ''}Link:* ${link}
 `.trim(), m)
   if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
-*📌Title:* ${title}
-*🗎 Filesize:* ${audio.fileSizeH}
+*📌Judule:* ${title}
+*🗎 Ukurane File:* ${audio.fileSizeH}
 `.trim(), m, null, {
     asDocument: chat.useDocument
   })
 }
-handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url> <without message>`)
+handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` [URL]`)
 handler.tags = ['downloader']
 handler.command = /^yt(a|mp3)$/i
 
-handler.exp = 0
+handler.limit = 8
 
 export default handler
 

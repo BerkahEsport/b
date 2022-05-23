@@ -6,14 +6,14 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.siapakahaku = conn.siapakahaku ? conn.siapakahaku : {}
     let id = m.chat
     if (id in conn.siapakahaku) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.siapakahaku[id][0])
+        conn.reply(m.chat, 'Iseh ono soal sing durung ke jawab nng chat iki!', conn.siapakahaku[id][0])
         throw false
     }
     const json = await siapakahaku()
     let caption = `
 Siapakah aku? ${json.soal}
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}who untuk bantuan
+Ketik ${usedPrefix}who kanggo Bantuan.
 Bonus: ${poin} XP
 `.trim()
     conn.siapakahaku[id] = [

@@ -1,6 +1,6 @@
 import { googleImage } from '@bochilteam/scraper'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `Use example ${usedPrefix}${command} Minecraft`
+    if (!text) throw `Carane nggunakke ketiken  ${usedPrefix}${command} Minecraft`
     const res = await googleImage(text)
     conn.sendFile(m.chat, res.getRandom(), 'gimage.jpg', `
 *── 「 GOOGLE IMAGE 」 ──*

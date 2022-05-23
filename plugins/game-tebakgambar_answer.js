@@ -6,7 +6,7 @@ export async function before(m) {
         return !0
     this.tebakgambar = this.tebakgambar ? this.tebakgambar : {}
     if (!(id in this.tebakgambar))
-        return conn.sendButton(m.chat, 'Soal itu telah berakhir', author, null, buttonTebakgambar, m)
+        return conn.sendButton(m.chat, '*Soale kui wes rampung!*', author, null, buttonTebakgambar, m)
     if (m.quoted.id == this.tebakgambar[id][0].id) {
         let isSurrender = /^((me)?nyerah|surr?ender)$/i.test(m.text)
         if (isSurrender) {
@@ -22,7 +22,7 @@ export async function before(m) {
             clearTimeout(this.tebakgambar[id][3])
             delete this.tebakgambar[id]
         } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold)
-            m.reply(`*Dikit Lagi!*`)
+            m.reply(`*Sitik engkas!*`)
         else
             conn.sendButton(m.chat, `*Salah!*`, author, null, [
                 ['hint', '/hint'],

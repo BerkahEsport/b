@@ -4,16 +4,16 @@ async function handler(m) {
     this.game = this.game ? this.game : {}
     let id = 'family100_' + m.chat
     if (id in this.game) {
-        this.reply(m.chat, 'Masih ada kuis yang belum terjawab di chat ini', this.game[id].msg)
+        this.reply(m.chat, 'Iseh ono kuis sing urung kejawab nang chat iki', this.game[id].msg)
         throw false
     }
     const json = await family100()
     let caption = `
 *Soal:* ${json.soal}
-Terdapat *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' ')) ? `
-(beberapa jawaban terdapat spasi)
+Ono *${json.jawaban.length}* jawaban${json.jawaban.find(v => v.includes(' ')) ? `
+(sawetara jawaban ono le nganggo spasi)
 `: ''}
-+${winScore} XP tiap jawaban benar
++${winScore} XP saben jawaban sing *bener* .
     `.trim()
     this.game[id] = {
         id,

@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.tebakgambar = conn.tebakgambar ? conn.tebakgambar : {}
     let id = m.chat
     if (id in conn.tebakgambar) {
-        conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', author, null, buttons, conn.tebakgambar[id][0])
+        conn.sendButton(m.chat, 'Iseh ono soal sing durung ke jawab nng chat iki!', author, null, buttons, conn.tebakgambar[id][0])
         throw false
     }
     let json = await tebakgambar()

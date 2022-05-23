@@ -1,6 +1,6 @@
 import { jadwalsholat } from '@bochilteam/scraper'
 let handler = async (m, { text, usedPrefix, command }) => {
-    if (!text) throw `Use example ${usedPrefix}${command} semarang`
+    if (!text) throw `Carane nggunakke ketiken  ${usedPrefix}${command} semarang`
     const res = await jadwalsholat(text)
     m.reply(`
 Jadwal Sholat *${text}*

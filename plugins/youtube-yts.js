@@ -1,13 +1,13 @@
 import { youtubeSearch } from '@bochilteam/scraper'
 let handler = async (m, { text }) => {
-  if (!text) throw 'Cari apa?'
+  if (!text) throw 'Golek apa mase?'
   const { video, channel } = await youtubeSearch(text)
   let teks = [...video, ...channel].map(v => {
     switch (v.type) {
       case 'video': return `
 📌 *${v.title}* (${v.url})
-⌚ Duration: ${v.durationH}
-⏲️ Uploaded ${v.publishedTime}
+⌚ Suwene: ${v.durationH}
+⏲️ Diunggah ${v.publishedTime}
 👁️ ${v.view} views
       `.trim()
       case 'channel': return `
@@ -19,7 +19,7 @@ let handler = async (m, { text }) => {
   }).filter(v => v).join('\n\n========================\n\n')
   m.reply(teks)
 }
-handler.help = ['', 'earch'].map(v => 'yts' + v + ' <pencarian>')
+handler.help = ['', 'earch'].map(v => 'yts' + v + ' [goleki opo]')
 handler.tags = ['tools']
 handler.command = /^yts(earch)?$/i
 

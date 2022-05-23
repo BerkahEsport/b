@@ -6,7 +6,7 @@ export async function before(m) {
         return !0
     this.caklontong = this.caklontong ? this.caklontong : {}
     if (!(id in this.caklontong))
-        return m.reply('Soal itu telah berakhir')
+        return m.reply('*Soale kui wes rampung!*')
     if (m.quoted.id == this.caklontong[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.caklontong[id][1]))
         if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
@@ -15,7 +15,7 @@ export async function before(m) {
             clearTimeout(this.caklontong[id][3])
             delete this.caklontong[id]
         } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold)
-            m.reply(`*Dikit Lagi!*`)
+            m.reply(`*Sitik engkas!*`)
         else
             m.reply(`*Salah!*`)
     }

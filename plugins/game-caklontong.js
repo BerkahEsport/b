@@ -5,12 +5,12 @@ let poin = 4999
 let handler = async (m, { conn, usedPrefix }) => {
     conn.caklontong = conn.caklontong ? conn.caklontong : {}
     let id = m.chat
-    if (id in conn.caklontong) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.caklontong[id][0])
+    if (id in conn.caklontong) return conn.reply(m.chat, 'Iseh ono soal sing durung ke jawab nng chat iki!', conn.caklontong[id][0])
     let json = await caklontong()
     let caption = `
 ${json.soal}
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}calo untuk bantuan
+Ketik ${usedPrefix}calo kanggo Bantuan.
 Bonus: ${poin} XP
 `.trim()
     conn.caklontong[id] = [

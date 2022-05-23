@@ -4,10 +4,10 @@ import { stickerLine, stickerTelegram } from '@bochilteam/scraper'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     // TODO: add stickerly
     const isTele = /tele/i.test(command)
-    if (!args[0]) throw `*Perintah ini untuk mengambil stiker dari ${isTele ? 'Tele' : 'Line'}*\n\nContoh penggunaan:\n${usedPrefix + command} spongebob`
+    if (!args[0]) throw `*Perintah iki kanggo jikuk stiker seko ${isTele ? 'Tele' : 'Line'}*\n\nConto penggunaanee:\n${usedPrefix + command} spongebob`
     const json = await (isTele ? stickerTelegram : stickerLine)(args[0])
     m.reply(`
-*Total stiker:* ${(json[0]?.stickers || json).length}
+*Total stikere:* ${(json[0]?.stickers || json).length}
 `.trim())
     for (let data of (json[0]?.stickers || json)) {
         const stiker = await sticker(false, data.sticker || data, global.packname, global.author)
@@ -16,7 +16,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     }
 
 }
-handler.help = ['stikerline <url>']
+handler.help = ['stikerline [url]']
 handler.tags = ['sticker']
 handler.command = /^(stic?ker(line|tele(gram)?))$/i
 

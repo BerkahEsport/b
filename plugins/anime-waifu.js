@@ -5,10 +5,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (!res.ok) throw await res.text()
     let json = await res.json()
     if (!json.url) throw 'Error!'
-    conn.sendButton(m.chat, 'Istri kartun', author, json.url, [['waifu', `${usedPrefix}waifu`]], m)
+    conn.sendButton(m.chat, 'Iki nyoh hasile..!!!', author, json.url, [['waifu', `${usedPrefix}waifu`]], m)
 }
 handler.help = ['waifu']
 handler.tags = ['internet']
 handler.command = /^(waifu)$/i
-//MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 export default handler

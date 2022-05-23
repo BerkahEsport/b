@@ -22,9 +22,9 @@ let handler = async (m, { conn, command, args }) => {
         m.reply(msg)
     }
 }
-handler.help = ['google', 'googlef'].map(v => v + ' <pencarian>')
+handler.help = ['google'].map(v => v + ' [goleki]')
 handler.tags = ['internet']
-handler.command = /^googlef?$/i
+handler.command = /^google?$/i
 
 
 export default handler

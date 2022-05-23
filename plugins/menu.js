@@ -314,7 +314,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
-    conn.sendHydrated(m.chat, text.trim(), author, pp, 'https://apiberkahesport.herokuapp.com', '꧁𓊈𒆜🆆🅰🅿🆂🅸🆃🅴𒆜𓊉꧂', null, null, [
+    conn.sendHydrated(m.chat, text.trim(), author, pp, 'https://chat.whatsapp.com/CxIlUZlW3lD7eH4LLLWYoZ', '꧁𓊈𒆜🅶🅲 🆁🅿🅶 🅾🅵🅵🅸🅲🅸🅰🅻𒆜𓊉꧂', null, null, [
       ['𝙳̷𝙾̷𝙽̷𝙰̷𝚂̷𝙸̷', '/donasi'],
       ['𝚂̷𝙿̷𝙴̷𝙴̷𝙳̷','/ping'],
       ['꧁༒☬𝓞𝓦𝓝𝓔𝓡☬༒꧂', '/owner']
